@@ -1,11 +1,3 @@
-<?php 
-$connect=mysqli_connect('localhost', 'root', '', 'fooddb');
-$query="select * from quickfood";
-$result=mysqli_query($connect,$query);
-?>
-
-
-
 <!DOCTYPE html5>
 <html>
 <head>
@@ -96,21 +88,19 @@ $result=mysqli_query($connect,$query);
                 Relatively simple but tastes good. Boil some pasta (Penne or Rigatoni reccomended), fry some sliced sausages, sautee some peppers with salt and sugar. Mix together and add red wine vinegar to sweeten the whole dish.
             </div>
         </div>
-        <table>
-            <tr>
-                <th>Food Item </th>
-            </tr>
-        <?php
-        while($rows=mysqli_fetch_assoc($result))
-        {
-            ?>
-            <tr>
-                <td><?php echo $rows['Name']?></td>
-            <tr>
-            <?php
-        }
-        ?>
-        </table>
+
+        <button class="mealplan" onclick="openForm()" id="mealbtn">Make a Meal Plan</button>
+        <div class="formpopup" id="meal-prep-form">
+            <form action="../php/generate-meal-plan.php" method="post" class="meal-form-conainer">
+                <h1>Choose Meal Types</h1>
+                <input type="number" name="quickmeals" placeholder="# of Quick Meals"><br>
+                <input type="number" name="mealpreps" placeholder="# of Meal Prep"><br>
+                <input type="number" name="pots" placeholder="# of Crockpot Style Meals"><br>
+                <input type="number" name="fancy" placeholder="# of Sit Down Meals"><br>
+                <button id="generate" type="submit">Generate Meal Plan</button><br>
+                <button type="button" class="cancel" onclick="closeForm()">Cancel</button> <br>
+            </form>    
+        </div>
   
         <footer>
             <button class="back" onclick="window.location.href='../index.html'" > Home</button><br>
@@ -118,7 +108,19 @@ $result=mysqli_query($connect,$query);
         </footer>
     </div>
 </body>
-   
+    
+
+    <script>
+        function openForm() {
+        document.getElementById("meal-prep-form").style.display = "block";
+        document.getElementById("mealbtn").style.display = "none";
+        }
+
+        function closeForm() {
+        document.getElementById("meal-prep-form").style.display = "none";
+        document.getElementById("mealbtn").style.display = "initial";
+        }
+    </script>
     <script>
         var coll = document.getElementsByClassName("collapse");
         var i;
