@@ -1,3 +1,12 @@
+<?php 
+$connect=mysqli_connect('localhost', 'root', '', 'fooddb');
+$query="select * from quickfood";
+$result=mysqli_query($connect,$query);
+?>
+
+
+
+<!DOCTYPE html5>
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,7 +19,7 @@
 </head>
 <body>
     <div class="cooking">
-        <header> Welcome to the Home Cooking Page!</header>
+        <header>Home Cooking</header>
         <p> On this page you can find some recipes as well as get a randomly selected meal plan
         </p>
 
@@ -87,13 +96,29 @@
                 Relatively simple but tastes good. Boil some pasta (Penne or Rigatoni reccomended), fry some sliced sausages, sautee some peppers with salt and sugar. Mix together and add red wine vinegar to sweeten the whole dish.
             </div>
         </div>
+        <table>
+            <tr>
+                <th>Food Item </th>
+            </tr>
+        <?php
+        while($rows=mysqli_fetch_assoc($result))
+        {
+            ?>
+            <tr>
+                <td><?php echo $rows['Name']?></td>
+            <tr>
+            <?php
+        }
+        ?>
+        </table>
+  
         <footer>
             <button class="back" onclick="window.location.href='../index.html'" > Home</button><br>
             Note: This page is more for ideas not strict recipes. 
         </footer>
     </div>
 </body>
-
+   
     <script>
         var coll = document.getElementsByClassName("collapse");
         var i;

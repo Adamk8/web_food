@@ -35,8 +35,13 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    background: black;
 
 }
+table {
+    position: relative;
+}
+
 /*Classes used within the html*/
 .home {
     background: rgb(0,0,0, 0.2);
