@@ -1,4 +1,3 @@
-<!DOCTYPE html5>
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,6 +9,7 @@
     <script src="../js/collapse.js"></script>
 </head>
 <body>
+    <!--This page conatins drop down buttons for many type of recipes-->
     <div class="cooking">
         <header>Home Cooking</header>
         <p> On this page you can find some recipes as well as get a randomly selected meal plan
@@ -28,12 +28,19 @@
                bacon, eggs, garlic, and parmesan. To add to this you can always 
                throw a few vegtables in for extra variety. 
             </div>
+            <button class="collapse">Spaghetti and Meatballs</button>
+            <div class="content">
+               A classic meal done quickly by making hand made meatballs out of pork and serving with spaghetti and sauce
+            </div>
+            <button class="collapse">Meatball Subs</button>
+            <div class="content">
+               A variation on the pork meatballs, this time serving them on a bun with sauce instead of over spaghetti. 
+            </div>
             <button class="collapse">Tortellini/Ravioli</button>
             <div class="content">
                This is for the days when you really don't feel like cooking 
                so you just throw the pasta on to boil and mix it with some sauce.
-               You can also make a salad on the side while the pasta is boiling to
-                make it a complete meal.
+               You can also add chicken or vegtables in to make it a more compete meal.
             </div>
             <button class="collapse">Quesidilla</button>
             <div class="content">
@@ -43,6 +50,7 @@
             <div class="content">
                A healthy choice, just choose a sauce for the chicken, cut up a few vegtables and serve over rice for a quick and easy meal.
             </div>
+
         </div>
 
         <div class="section"> 
@@ -100,39 +108,8 @@
                 Relatively simple but tastes good. Boil some pasta (Penne or Rigatoni reccomended), fry some sliced sausages, sautee some peppers with salt and sugar. Mix together and add red wine vinegar to sweeten the whole dish.
             </div>
         </div>
-
-        <button class="mealplan" onclick="openForm()" id="mealbtn">Make a Meal Plan</button>
-        <div class="formpopup" id="meal-prep-form">
-            <form action="../php/generate-meal-plan.php" method="post" class="meal-form-conainer">
-                <h1>Choose Meal Types</h1>
-                <input type="number" name="quickmeals" placeholder="# of Quick Meals"><br>
-                <input type="number" name="mealpreps" placeholder="# of Meal Prep"><br>
-                <input type="number" name="pots" placeholder="# of Crockpot Style Meals"><br>
-                <input type="number" name="fancy" placeholder="# of Sit Down Meals"><br>
-                <button id="generate" type="submit">Generate Meal Plan</button><br>
-                <button type="button" class="cancel" onclick="closeForm()">Cancel</button> <br>
-            </form>    
-        </div>
-  
-        <footer>
-            <button class="back" onclick="window.location.href='../index.html'" > Home</button><br>
-            Note: This page is more for ideas not strict recipes. 
-        </footer>
-    </div>
-</body>
+    </body>
     
-
-    <script>
-        function openForm() {
-        document.getElementById("meal-prep-form").style.display = "block";
-        document.getElementById("mealbtn").style.display = "none";
-        }
-
-        function closeForm() {
-        document.getElementById("meal-prep-form").style.display = "none";
-        document.getElementById("mealbtn").style.display = "initial";
-        }
-    </script>
     <script>
         var coll = document.getElementsByClassName("collapse");
         var i;
@@ -149,4 +126,3 @@
           });
         }
     </script>
-</html>
