@@ -57,7 +57,15 @@ input {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.calgary {
+    background: rgb(0,0,0, 0.2);
+    background-blend-mode: darken;
+    background-image: url("../img/Calgary.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .victoria {
     background: rgb(0,0,0, 0.4);
     background-image: url("../img/victoria.jpg");
